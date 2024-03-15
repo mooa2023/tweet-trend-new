@@ -1,5 +1,6 @@
 # T-trend application
 
+edit ---
 This is a small applicaiton which contains main and test folders.  
 This main contains application code.  
 Test contains test cases.  
