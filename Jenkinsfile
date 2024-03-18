@@ -1,9 +1,9 @@
 pipeline {
-    agent {
-        node {
-            label 'maven'
-        }
+agent {
+    node {
+        label 'maven'
     }
+}
 
 environment {
     PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
@@ -17,13 +17,13 @@ environment {
         }
 
         stage('SonarQube analysis') {
-        environment {
-            scannerHome = tool 'ttrend-sonar-scanner'
-            }
-        steps {
-        withSonarQubeEnv('ttrend-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
-            sh "${scannerHome}/bin/sonar-scanner"
+            environment {
+                scannerHome = tool 'ttrend-sonar-scanner'
+                }
+            steps {
+                withSonarQubeEnv('ttrend-sonarqube-server') { // If you have configured more than one global server connection, you can specify its name
+                    sh "${scannerHome}/bin/sonar-scanner"
+                }
             }
         }
-    }
 }  
